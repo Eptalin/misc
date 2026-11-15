@@ -1,7 +1,6 @@
 package org.example.coffee
 
 import org.example.ui.MessageType
-import org.example.ui.UIOption
 
 class CoffeeViewCLI(
     private val viewModel: CoffeeViewModel,
@@ -17,17 +16,17 @@ class CoffeeViewCLI(
 
     fun render(state: CoffeeState) {
         println(state.title)
-        for (message in state.messages) {
-            val type = when (message.type) {
+        for ((text, type) in state.messages) {
+            val type = when (type) {
                 MessageType.ERROR -> "ERROR"
                 MessageType.MESSAGE -> "MESSAGE"
                 MessageType.QUESTION -> "QUESTION"
                 MessageType.PROMPT -> "PROMPT"
             }
-            println("${message.text} ($type)")
+            println("$text ($type)")
         }
-        for (option in state.options) {
-            println("- ${option.label}")
+        for ((label) in state.options) {
+            println("- $label")
         }
     }
 }

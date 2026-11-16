@@ -4,5 +4,6 @@ enum class ProcessStep {
     COFFEE_TYPE,
     MILK_TYPE,
     SUGAR,
+    PREPARING,
     COMPLETE,
 }
